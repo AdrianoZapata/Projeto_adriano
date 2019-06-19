@@ -2,6 +2,7 @@ from bottle import route, run
 from bottle import request, template
 from bottle import static_file, get
 from bottle import error
+import os 
 
 #static routes
 @get('/<filename:re:.*\.css>')
@@ -20,7 +21,7 @@ def images(filename):
 def fonts(filename):
 	return static_file(filename, root='static/fonts')
 
-@route('/login') # @get('/login')
+@route('/') # @get('/')
 def login():
 	return template('login')
 	    
@@ -30,7 +31,7 @@ def check_login(username, password):
 		return True
 	return False
 
-@route('/login', method='POST') #@post('/login')
+@route('/', method='POST') #@post('/')
 def acao_login():
 	username = request.forms.get('username')
 	password = request.forms.get('password')
@@ -41,4 +42,7 @@ def error404(error):
 	return template('pagina404')
 	
 if __name__ == '__main__':
-	run(host='localhost', port=8080, debug=True, reloader=True)
+	if os.environ.get('APP_LOCATION') == 'heroku':
+		run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
+	else:
+	    run(host='localhost', port=8080, debug=True, reloader=True)
