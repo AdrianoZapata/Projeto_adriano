@@ -1,0 +1,10 @@
+% rebase('base.html', title='Verificação login')
+
+<div class="alert alert-info">
+	<strong>Users system list</strong>
+</div>
+<ul class="list-group" style="width:50%">
+	% for usuario in usuarios:
+	<li class="list-group-item">{{ usuario.username }}</li>
+	%end
+</ul>
