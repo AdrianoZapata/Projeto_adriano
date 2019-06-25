@@ -1,27 +1,24 @@
 % rebase('base.html', title='Fazer cadastro')
 
-<div class="container">
-    <div class="row vertical-offset-100">
-    	<div class="col-md-4 col-md-offset-4">
-    		<div class="panel panel-default">
-			  	<div class="panel-heading">
-			    	<h3 class="panel-title">Cadastro</h3>
-			 	</div>
-			  	<div class="panel-body">
-			    	<form accept-charset="UTF-8" role="form" action="cadastro" method="post">
-                    <fieldset>
-			    	  	<div class="form-group">
-			    	  		<p>Pick an username:</p>
-			    		    <input class="form-control" placeholder="username" name="username" type="text">
-			    		</div>
-			    		<div class="form-group">
-			    			<p>Pick your password:</p>
-			    			<input class="form-control" placeholder="password" name="password" type="password" value="">
-			    		</div>
-			    		<input class="btn btn-lg btn-success btn-block" type="submit" value="Fill up">
-			    	</fieldset>
-			      	</form>
-			      	<p><a href="/"> Click here</a> to fill out.</p>
-			    </div>
-			</div>
-		</div>
+<div class="panel-heading">
+	<h3 class="panel-title">Cadastro</h3>
+</div>
+<div class="panel-body">
+    <form accept-charset="UTF-8" role="form" action="cadastro" method="post">
+        <fieldset>
+            <div class="form-group">
+	            <p>Pick an username:</p>
+		        <input class="form-control" placeholder="username" name="username" type="text">
+	        </div>
+            <div class="form-group">
+	            <p>Pick your password:</p>
+		        <input class="form-control" placeholder="password" name="password" type="password" value="">
+            </div>
+	        <input class="btn btn-lg btn-success btn-block" type="submit" value="Fill up">
+	    </fieldset>
+    </form>
+    % if existe_username:
+        <p style="color:red"><strong> We already have this one!</strong></p>
+    % end
+    <p><a href="/"> Click here</a> to fill out.</p>
+</div>
