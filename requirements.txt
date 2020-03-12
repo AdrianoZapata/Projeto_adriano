@@ -133,7 +133,7 @@ ply==3.11
 poyo==0.4.2
 prometheus-client==0.6.0
 prompt-toolkit==2.0.9
-psutil==5.6.1
+psutil==5.6.6
 py==1.8.0
 pycodestyle==2.5.0
 pycosat==0.6.3
